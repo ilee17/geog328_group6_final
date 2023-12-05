@@ -1,0 +1,282 @@
+{
+  "type": "FeatureCollection",
+  "name": "housing_prices",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+   { "type": "Feature", "properties": {
+     "Location": "AUS",
+     "data_2012.Value": 85.05627279,
+     "data_2022.Value": 118.2673889,
+     "difference": 33.21111611},
+   "geometry": { "type": "Point", "coordinates": [133.775136,-25.274398] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "AUT",
+     "data_2012.Value": 89.0777369,
+     "data_2022.Value": 138.248242,
+     "difference": 49.1705051},
+   "geometry": { "type": "Point", "coordinates": [14.550072,47.516231] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "BEL",
+     "data_2012.Value": 100.3097275,
+     "data_2022.Value": 106.2738339,
+     "difference": 5.9641064},
+   "geometry": { "type": "Point", "coordinates": [4.469936,50.503887] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "BGR",
+     "data_2012.Value": 105.678123,
+     "data_2022.Value": 82.82122459,
+     "difference": -22.85689841},
+   "geometry": { "type": "Point", "coordinates": [25.48583,42.733883] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "CAN",
+     "data_2012.Value": 95.31219253,
+     "data_2022.Value": 145.1535356,
+     "difference": 49.84134307},
+   "geometry": { "type": "Point", "coordinates": [-106.346771,56.130366] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "CHE",
+     "data_2012.Value": 92.53723446,
+     "data_2022.Value": 122.3437595,
+     "difference": 29.80652504},
+   "geometry": { "type": "Point", "coordinates": [8.227512,46.818188] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "CHL",
+     "data_2012.Value": 84.30441898,
+     "data_2022.Value": 109.4830183,
+     "difference": 25.17859932},
+   "geometry": { "type": "Point", "coordinates": [-71.542969,-35.675147] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "CZE",
+     "data_2012.Value": 100.4849622,
+     "data_2022.Value": 142.0321656,
+     "difference": 41.5472034},
+   "geometry": { "type": "Point", "coordinates": [15.472962,49.817492] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "DEU",
+     "data_2012.Value": 94.44525629,
+     "data_2022.Value": 132.6054832,
+     "difference": 38.16022691},
+   "geometry": { "type": "Point", "coordinates": [10.451526,51.165691] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "DNK",
+     "data_2012.Value": 92.36871045,
+     "data_2022.Value": 110.5966041,
+     "difference": 18.22789365},
+   "geometry": { "type": "Point", "coordinates": [9.501785,56.26392] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "EA",
+     "data_2012.Value": 103.7929163,
+     "data_2022.Value": 117.9903009,
+     "difference": 14.1973846},
+   "geometry": { "type": "Point", "coordinates": [0,0] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "EA17",
+     "data_2012.Value": 103.8952528,
+     "data_2022.Value": 117.9452415,
+     "difference": 14.0499887},
+   "geometry": { "type": "Point", "coordinates": [0,0] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "ESP",
+     "data_2012.Value": 110.856956,
+     "data_2022.Value": 120.2478624,
+     "difference": 9.3909064},
+   "geometry": { "type": "Point", "coordinates": [-3.74922,40.463667] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "EST",
+     "data_2012.Value": 91.40015224,
+     "data_2022.Value": 116.5607625,
+     "difference": 25.16061026},
+   "geometry": { "type": "Point", "coordinates": [25.013607,58.595272] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "FIN",
+     "data_2012.Value": 103.1182514,
+     "data_2022.Value": 94.75672337,
+     "difference": -8.36152803},
+   "geometry": { "type": "Point", "coordinates": [25.748151,61.92411] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "FRA",
+     "data_2012.Value": 106.6581158,
+     "data_2022.Value": 111.3468036,
+     "difference": 4.6886878},
+   "geometry": { "type": "Point", "coordinates": [2.213749,46.227638] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "GBR",
+     "data_2012.Value": 95.02661129,
+     "data_2022.Value": 120.4140478,
+     "difference": 25.38743651},
+   "geometry": { "type": "Point", "coordinates": [-3.435973,55.378051] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "GRC",
+     "data_2012.Value": 122.5236296,
+     "data_2022.Value": 110.06148,
+     "difference": -12.4621496},
+   "geometry": { "type": "Point", "coordinates": [21.824312,39.074208] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "HRV",
+     "data_2012.Value": 112.0687085,
+     "data_2022.Value": 99.12533822,
+     "difference": -12.94337028},
+   "geometry": { "type": "Point", "coordinates": [15.2,45.1] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "HUN",
+     "data_2012.Value": 99.09878464,
+     "data_2022.Value": 128.3335173,
+     "difference": 29.23473266},
+   "geometry": { "type": "Point", "coordinates": [19.503304,47.162494] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "IRL",
+     "data_2012.Value": 78.64172231,
+     "data_2022.Value": 119.8184732,
+     "difference": 41.17675089},
+   "geometry": { "type": "Point", "coordinates": [-8.24389,53.41291] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "ITA",
+     "data_2012.Value": 119.402549,
+     "data_2022.Value": 91.73399878,
+     "difference": -27.66855022},
+   "geometry": { "type": "Point", "coordinates": [12.56738,41.87194] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "JPN",
+     "data_2012.Value": 96.38947919,
+     "data_2022.Value": 113.0296289,
+     "difference": 16.64014971},
+   "geometry": { "type": "Point", "coordinates": [138.252924,36.204824] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "KOR",
+     "data_2012.Value": 111.3799418,
+     "data_2022.Value": 92.75592063,
+     "difference": -18.62402117},
+   "geometry": { "type": "Point", "coordinates": [127.766922,35.907757] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "LTU",
+     "data_2012.Value": 100.3582483,
+     "data_2022.Value": 107.6898359,
+     "difference": 7.3315876},
+   "geometry": { "type": "Point", "coordinates": [23.881275,55.169438] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "LUX",
+     "data_2012.Value": 90.23221014,
+     "data_2022.Value": 153.7793607,
+     "difference": 63.54715056},
+   "geometry": { "type": "Point", "coordinates": [6.129583,49.815273] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "LVA",
+     "data_2012.Value": 107.6646621,
+     "data_2022.Value": 113.8530521,
+     "difference": 6.18839},
+   "geometry": { "type": "Point", "coordinates": [24.603189,56.879635] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "NLD",
+     "data_2012.Value": 106.6109257,
+     "data_2022.Value": 140.7656943,
+     "difference": 34.1547686},
+   "geometry": { "type": "Point", "coordinates": [5.291266,52.132633] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "NOR",
+     "data_2012.Value": 102.0971283,
+     "data_2022.Value": 117.4375834,
+     "difference": 15.3404551},
+   "geometry": { "type": "Point", "coordinates": [8.468946,60.472024] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "NZL",
+     "data_2012.Value": 81.51974498,
+     "data_2022.Value": 135.8992913,
+     "difference": 54.37954632},
+   "geometry": { "type": "Point", "coordinates": [174.885971,-40.900557] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "OECD",
+     "data_2012.Value": 96.0816949,
+     "data_2022.Value": 123.6449302,
+     "difference": 27.5632353},
+   "geometry": { "type": "Point", "coordinates": [0,0] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "POL",
+     "data_2012.Value": 111.2766547,
+     "data_2022.Value": 102.2844456,
+     "difference": -8.9922091},
+   "geometry": { "type": "Point", "coordinates": [19.145136,51.919438] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "PRT",
+     "data_2012.Value": 98.30499241,
+     "data_2022.Value": 148.1534454,
+     "difference": 49.84845299},
+   "geometry": { "type": "Point", "coordinates": [-8.224454,39.399872] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "ROU",
+     "data_2012.Value": 119.9572541,
+     "data_2022.Value": 70.04239453,
+     "difference": -49.91485957},
+   "geometry": { "type": "Point", "coordinates": [24.96676,45.943161] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "SVK",
+     "data_2012.Value": 99.84943214,
+     "data_2022.Value": 121.3787552,
+     "difference": 21.52932306},
+   "geometry": { "type": "Point", "coordinates": [19.699024,48.669026] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "SVN",
+     "data_2012.Value": 114.6787252,
+     "data_2022.Value": 117.5424086,
+     "difference": 2.8636834},
+   "geometry": { "type": "Point", "coordinates": [14.995463,46.151241] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "SWE",
+     "data_2012.Value": 82.10599089,
+     "data_2022.Value": 110.8355436,
+     "difference": 28.72955271},
+   "geometry": { "type": "Point", "coordinates": [18.643501,60.128161] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "USA",
+     "data_2012.Value": 90.23807161,
+     "data_2022.Value": 134.0087803,
+     "difference": 43.77070869},
+   "geometry": { "type": "Point", "coordinates": [-95.712891,37.09024] }
+   },
+   { "type": "Feature", "properties": {
+     "Location": "ZAF",
+     "data_2012.Value": 100.61753,
+     "data_2022.Value": 94.69223082,
+     "difference": -5.92529918},
+   "geometry": { "type": "Point", "coordinates": [22.937506,-30.559482] }
+   }
+  ]
+  
+  }
+  
