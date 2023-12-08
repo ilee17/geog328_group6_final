@@ -122,6 +122,15 @@
                 });
 
             });
+
+            map.on('mousemove', ({point}) => {
+                const country = map.queryRenderedFeatures(point, {
+                    layers: ['housing_prices_layer']
+                });
+                document.getElementById('text-description').innerHTML = country.length ?
+                    `<h3>Country: ${country[0].properties.Location}</h3><p><strong><em>${Math.floor(country[0].properties.difference * 100) / 100}%</strong> increase (2012-2022) </em></p>` :
+                    `<p>Hover over a data point!</p>`;
+            });
         }
 
         geojsonFetch();
