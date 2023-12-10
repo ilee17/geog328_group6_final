@@ -48,7 +48,7 @@
             left: 0;
             top: 0;
             height: 100px;
-            margin-top: 20px;
+            margin-top: 90px;
             margin-left: 20px;
             width: 250px;
         }
@@ -86,7 +86,7 @@
             line-height: 18px;
             height: 60%;
             margin-right: 20px;
-            margin-top: 20px;
+            margin-top: 90px;
             width: 300px;
             overflow-y: scroll;
         }
@@ -107,11 +107,34 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+
+        .topnav {
+            background-color: rgb(0, 0, 0);
+            overflow: hidden;
+        }
+        
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 26px;
+        }
     </style>
 </head>
 
 <body>
     <main>
+        <div class="topnav" id="myTopnav">
+            <a class="active" href="index.html">Map</a>
+            <a href="info.html">Info</a>
+            <a href="references.html">References</a>
+            <a href="javascript:void(0);" class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
         <div class='map-overlay'id="side-panel">
             <button>Sort by % Change</button>
             <table>
@@ -138,7 +161,7 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 1.35,
+            zoom: 1.75,
             center: [30, 27]
         });
 
