@@ -9,6 +9,6 @@ Over the past few years, with a rapidly rising housing market, it has seemed imp
 The map has circle on a few random countries across the world that you can hover on to see the percent change from 2012 to 2022. There is a legend in the bottom left corner for the colors of the dots. We have also added a table on the right to show the data of the countries. On the table there is a sort function that allows the user to sort the table by % change.
 
 ## Sources & Libraries & Web Serivces
-The data we used was from the, [Organisation for Economic Co-operation and Development](https://data.oecd.org/price/housing-prices.htm)
-The libraries we used
+The data we used was from the, [Organisation for Economic Co-operation and Development](https://data.oecd.org/price/housing-prices.htm)<br />
+The libraries we used<br />
 The web services we used were [github](https://github.com/) and [mapbox](https://www.mapbox.com/)
