@@ -74,20 +74,6 @@
    "geometry": { "type": "Point", "coordinates": [9.501785,56.26392] }
    },
    { "type": "Feature", "properties": {
-     "Location": "EA",
-     "data_2012": 103.7929163,
-     "data_2022": 117.9903009,
-     "difference": 14.1973846},
-   "geometry": { "type": "Point", "coordinates": [0,0] }
-   },
-   { "type": "Feature", "properties": {
-     "Location": "EA17",
-     "data_2012": 103.8952528,
-     "data_2022": 117.9452415,
-     "difference": 14.0499887},
-   "geometry": { "type": "Point", "coordinates": [0,0] }
-   },
-   { "type": "Feature", "properties": {
      "Location": "ESP",
      "data_2012": 110.856956,
      "data_2022": 120.2478624,

@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-US">
 <head>
     <meta charset="utf-8">
-    <title>Global Housing Prices</title>
+    <title>OECD Housing Prices</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
-
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
-
     <style>
         h2,
         h3 {
@@ -33,35 +29,39 @@
             right: 0;
             width: 100%;
             height: 100%;
+            z-index: -100;
         }
 
         .map-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
             background: rgba(255, 255, 255, 0.8);
             border-style: solid;
             border-width: 1px;
             border-color: rgba(0, 0, 0, 0.2);
-            margin-left: 20px;
             font-family: Arial, sans-serif;
             overflow: auto;
             border-radius: 3px;
         }
 
         #features {
+            bottom: 0;
+            left: 0;
             top: 0;
             height: 100px;
             margin-top: 20px;
+            margin-left: 20px;
             width: 250px;
         }
 
         #legend {
+            bottom: 0;
+            left: 0;
             padding: 10px;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             line-height: 18px;
-            height: 210px;
+            height: 170px;
             margin-bottom: 40px;
+            margin-left: 20px;
             width: 150px;
         }
 
@@ -77,31 +77,88 @@
         .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
             cursor: unset;
         }
+
+        #side-panel {
+            top: 0;
+            right: 0;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            line-height: 18px;
+            height: 60%;
+            margin-right: 20px;
+            margin-top: 20px;
+            width: 300px;
+            overflow-y: scroll;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 7px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 
 <body>
-    <div id="map"></div>
-    <div class='map-overlay' id='features'>
-        <h2>Global Housing Prices</h2>
-        <div id='text-description'>
-            <p>Hover over a country!</p>
+    <main>
+        <div class='map-overlay'id="side-panel">
+            <button>Sort by % Change</button>
+            <table>
+                <tr>
+                    <th>Country</th>
+                    <th>2012</th>
+                    <th>2022</th>
+                    <th>% Change</th>
+                </tr>
+            </table>
         </div>
-    </div>
-    <div class='map-overlay' id='legend'></div>
+        <div id="map"></div>
+        <div class='map-overlay' id='features'>
+            <h2>OECD Housing Prices</h2>
+            <div id='text-description'>
+                <p>Hover over a data point!</p>
+            </div>
+        </div>
+        <div class='map-overlay' id='legend'></div>
+    </main>
     <script>
         mapboxgl.accessToken =
             'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 1.3,
-            center: [0, 30]
+            zoom: 1.35,
+            center: [30, 27]
         });
 
         async function geojsonFetch() {
             let response = await fetch('assets/housing_prices.geojson');
             let housing_prices = await response.json();
+
+            table = document.getElementsByTagName("table")[0];
+            let row, cell1, cell2, cell3, cell4;
+            for (let i = 0; i < housing_prices.features.length; i++) {
+                row = table.insertRow(-1);
+                cell1 = row.insertCell(0);
+                cell2 = row.insertCell(1);
+                cell3 = row.insertCell(2);
+                cell4 = row.insertCell(3);
+                cell1.innerHTML = housing_prices.features[i].properties.Location;
+                cell2.innerHTML = Math.floor(housing_prices.features[i].properties.data_2012 * 100) / 100;
+                cell3.innerHTML = Math.floor(housing_prices.features[i].properties.data_2022 * 100) / 100;
+                cell4.innerHTML = Math.floor((housing_prices.features[i].properties.difference / housing_prices.features[i].properties.data_2012)* 10000) / 100;
+            }
 
             map.on('load', function loadingData() {
                 map.addSource('housing_prices', {
@@ -141,7 +198,7 @@
                     '-20% to -1%',
                     '0% to 19%',
                     '20% to 39%',
-                    '40% and more'
+                    'greater than 40%'
                 ];
 
                 const colors = [
@@ -154,7 +211,7 @@
                 ]
 
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>Filler<br>(rate)</b><br><br>";
+                legend.innerHTML = "<b>Price Change (2012-2022)</b><br><br>";
 
                 layers.forEach((layer, i) =>{
                     const color = colors[i];
@@ -183,8 +240,34 @@
         }
 
         geojsonFetch();
+
+        let btn = document.getElementsByTagName("button")[0];
+
+        btn.addEventListener('click', sortTable);
+
+        function sortTable(e) {
+            let table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementsByTagName("table")[0];
+            switching = true;
+            while (switching) {
+
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = parseFloat(rows[i].getElementsByTagName("td")[3].innerHTML);
+                    y = parseFloat(rows[i + 1].getElementsByTagName("td")[3].innerHTML);
+                    if (x < y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
     </script>
-
 </body>
-
 </html>
