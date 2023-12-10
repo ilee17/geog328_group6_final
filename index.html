@@ -116,9 +116,58 @@
                     'paint': {
                         'circle-radius': 8,
                         'circle-stroke-width': 2,
-                        'circle-color': 'red',
+                        'circle-color': [
+                            'step',
+                            ['get', 'difference'],
+                            '#67d339', // output 0
+                            -40,       // input 0
+                            '#b0d339', // output 1
+                            -20,       // input 1
+                            '#d3bb39', // output 2
+                            0,         // input 2
+                            '#d37c39', // output 3
+                            20,        // input 3
+                            '#d33939', // output 4
+                            40,        // input 4
+                            '#ad205b'  // output 5
+                        ],
                         'circle-stroke-color': 'white'
                     }
+                });
+                
+                const layers = [
+                    'less than -41%',
+                    '-40% to -21%',
+                    '-20% to -1%',
+                    '0% to 19%',
+                    '20% to 39%',
+                    '40% and more'
+                ];
+
+                const colors = [
+                    '#67d33970',
+                    '#b0d33970',
+                    '#d3bb3970',
+                    '#d37c3970',
+                    '#d3393970',
+                    '#ad205b70'
+                ]
+
+                const legend = document.getElementById('legend');
+                legend.innerHTML = "<b>Filler<br>(rate)</b><br><br>";
+
+                layers.forEach((layer, i) =>{
+                    const color = colors[i];
+                    const item = document.createElement('div');
+                    const key = document.createElement('span');
+                    key.className = 'legend-key';
+                    key.style.backgroundColor = color;
+
+                    const value = document.createElement('span');
+                    value.innerHTML = `${layer}`;
+                    item.appendChild(key);
+                    item.appendChild(value);
+                    legend.appendChild(item);
                 });
 
             });
