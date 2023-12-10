@@ -122,6 +122,27 @@
             text-decoration: none;
             font-size: 26px;
         }
+
+        .topnav a:hover {
+            background-color: grey;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: red;
+            color: white;
+        }
+        
+        .topnav .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 800px) {
+
+            #side-panel{
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -266,6 +287,8 @@
 
         let btn = document.getElementsByTagName("button")[0];
 
+        let temp = 0;
+
         btn.addEventListener('click', sortTable);
 
         function sortTable(e) {
@@ -280,7 +303,7 @@
                     shouldSwitch = false;
                     x = parseFloat(rows[i].getElementsByTagName("td")[3].innerHTML);
                     y = parseFloat(rows[i + 1].getElementsByTagName("td")[3].innerHTML);
-                    if (x < y) {
+                    if (ascend_descend(temp, x, y)) {
                         shouldSwitch = true;
                         break;
                     }
@@ -289,6 +312,15 @@
                     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                     switching = true;
                 }
+            }
+            temp++;
+        }
+
+        function ascend_descend(temp, x, y) {
+            if (temp % 2 == 0) {
+                return x > y
+            } else {
+                return x < y
             }
         }
     </script>
