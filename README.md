@@ -13,5 +13,5 @@ After mapping out the price to income ratio for 2012 and 2022, we found it inter
 
 ## Sources & Libraries & Web Serivces
 The data we used was from the [Organisation for Economic Co-operation and Development](https://data.oecd.org/price/housing-prices.htm)<br />
-The library we used was [mapbox](https://docs.mapbox.com/mapbox-gl-js/guides/)<br />
-The web services we used were [github](https://github.com/) and [mapbox](https://www.mapbox.com/)
+The library we used was [Mapbox](https://docs.mapbox.com/mapbox-gl-js/guides/)<br />
+The web services we used were [GitHub](https://github.com/) and [Mapbox](https://www.mapbox.com/)
