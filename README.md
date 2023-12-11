@@ -1,5 +1,5 @@
 # OECD Housing Prices
-![Alt text](img/Global-housing-prices-interface.png)
+![Alt text](/images/Global-housing-prices-interface.png)
 [OECD Housing Prices Map](https://ilee17.github.io/geog328_group6_final/)
 
 ## Project Introduction
