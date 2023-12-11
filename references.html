@@ -107,43 +107,33 @@
     <main>
         <div class="topnav" id="myTopnav">
             <a href="index.html">Map</a>
-            <a class="active" href="info.html">Info</a>
-            <a href="references.html">References</a>
+            <a href="info.html">Info</a>
+            <a class="active" href="references.html">References</a>
         </div>
         <div id="block">
         </div>
         <div id="map"></div>
-        <div class='map-overlay' id='info'>
-            <h1>Project Information</h1>
-            <h2>Introduction</h2>
-            <p>Over the past few years, with a rapidly rising housing market, it has seemed impossible for a
-                college student or almost anyone to afford a new house in the Seattle area. This, however, is not just 
-                a problem that’s seen here. We can also see this occurring in various states within the United States.
-                For our final project, we decided to examine the change over the last 10 years in the ratio between income and 
-                housing costs throughout the world, specifically focusing on countries that are part of the OECD (Organisation for
-                Economic Co-operation and Development). Our goal is to create a useful tool for helping first-time homeowners with
-                deciding on a suitable economy to buy their first house. Based on the data from the Organisation for Economic Co-operation and 
-                Development (OECD) that tells the audience of each country's percentage change in housing price to income ratio
-                from the years 2012 to 2022.</p>
-                <br>
-            <h2>Functions</h2>
-            <p>The map has points located on each of the OECD countries across the world that you can hover over
-                to see each country's percent change in housing price to income ratio from 2012 to 2022.
-                There is a legend in the bottom left corner detailing the categorization of these points. Additionally,
-                we added a table on the right with more extensive data for each of the countries. Included with the table
-                is a sort function that allows the user to sort the countries in the table by % change, both ascending and descending.
-                The price to income ratio is the house price index divided by the nominal disposable income per person. This
-                ratio is used to determine affordablity. </p>
-            <br>
-            <h2>Conclusion</h2>
-            <p>After mapping out the price-to-income ratio for 2012 and 2022, we found it interesting how the highest difference was in 
-                Luxembourg (LUX), with 70.42%. We also found it interesting that Romania (ROU) had a -41.62 % change between 2012 and 2022.
-                This meant that instead of the ratio increasing, this country was able to close the gap between housing prices and income rates.
-                A general overview of the map we can see that more countries had a higher difference between the income and housing cost ratio. 
-                Fewer countries have a ratio decreased which means fewer countries have the ability to close the gap between housing prices and 
-                income rates.
+        <div class='map-overlay' id='references'>
+            <h2>Sources & Libraries & Web Serivces</h2>
+            <ol>
+            <p> <li>The data we used was from the <a href="https://data.oecd.org/price/housing-prices.htm">Organisation for Economic Co-operation and Development</li>
+                <ul>
+                    <li><a> The Organisation for Economic Co-operation and Development (OECD) is an international organisation that works to build better policies 
+                        to improve quality of life. Their goal is to shape policies that foster prosperity, squality, opportunity and well-being for all. 
+                    </a>
+                    </li>
+                    <li><a> The organization works together to establish evidence-based international standards and finding solutions to a range of social, eonomic, 
+                        and environmental challenges. </a>
+                    </li>
+                    <li><a> Currently OECD has 38 member countries spanning the globe, from North and South America to Europe and Asia-Pacific. Member countries enegage with
+                        OECD experts, use the OECD data and analysis to inform policy decisions.
+                    </a> 
+                    </li>
+                </ul>
+                <li>The library we used was <a href="https://docs.mapbox.com/mapbox-gl-js/guides/">Mapbox</a></li>
+                <li>The web services we used were <a href="https://github.com/">GitHub</a> and <a href="https://www.mapbox.com/">Mapbox</a> </li>
             </p>
-            <br>
+            </ol>
         </div>
     </main>
     <script>
