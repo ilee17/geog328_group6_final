@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>OECD Housing Prices</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2,
+        h3 {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+        }
+
+        .map-overlay {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
+
+        #info {
+            bottom: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin-top: 90px;
+            margin-left: 20%;
+            margin-bottom: 20px;
+            margin-right: 20%;
+        }
+
+        #temp {
+            position: absolute;
+            z-index: -99;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+        }
+
+        #features {
+            bottom: 0;
+            left: 0;
+            top: 0;
+            height: 100px;
+            margin-top: 90px;
+            margin-left: 20px;
+            width: 250px;
+        }
+
+        .mapboxgl-canvas-container.mapboxgl-interactive,
+        .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass {
+            cursor: unset;
+        }
+
+        .topnav {
+            background-color: rgb(0, 0, 0);
+            overflow: hidden;
+        }
+        
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 26px;
+        }
+
+        .topnav a:hover {
+            background-color: grey;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Map</a>
+            <a class="active" href="info.html">Info</a>
+            <a href="references.html">References</a>
+        </div>
+        <div id="temp">
+        </div>
+        <div id="map"></div>
+        <div class='map-overlay' id='info'>
+            <h1>Project Information</h1>
+            <h3>Note: Please view the readme file for a more detailed explanation of the project</h3>
+            <p>Project Information</p>
+        </div>
+    </main>
+    <script>
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            zoom: 1.75,
+            center: [30, 27]
+        });
+
+        async function geojsonFetch() {
+            let response = await fetch('assets/housing_prices.geojson');
+            let housing_prices = await response.json();
+
+            map.on('load', function loadingData() {
+                map.addSource('housing_prices', {
+                    type: 'geojson',
+                    data: housing_prices
+                });
+
+                map.addLayer({
+                    'id': 'housing_prices_layer',
+                    'type': 'circle',
+                    'source': 'housing_prices',
+                    'paint': {
+                        'circle-radius': 8,
+                        'circle-stroke-width': 2,
+                        'circle-color': [
+                            'step',
+                            ['get', 'difference'],
+                            '#67d339', // output 0
+                            -40,       // input 0
+                            '#b0d339', // output 1
+                            -20,       // input 1
+                            '#d3bb39', // output 2
+                            0,         // input 2
+                            '#d37c39', // output 3
+                            20,        // input 3
+                            '#d33939', // output 4
+                            40,        // input 4
+                            '#ad205b'  // output 5
+                        ],
+                        'circle-stroke-color': 'white'
+                    }
+                });
+                
+                const layers = [
+                    'less than -41%',
+                    '-40% to -21%',
+                    '-20% to -1%',
+                    '0% to 19%',
+                    '20% to 39%',
+                    'greater than 40%'
+                ];
+
+                const colors = [
+                    '#67d33970',
+                    '#b0d33970',
+                    '#d3bb3970',
+                    '#d37c3970',
+                    '#d3393970',
+                    '#ad205b70'
+                ]
+
+
+            });
+
+            map.on('mousemove', ({point}) => {
+                const country = map.queryRenderedFeatures(point, {
+                    layers: ['housing_prices_layer']
+                });
+                document.getElementById('text-description').innerHTML = country.length ?
+                    `<h3>Country: ${country[0].properties.Location}</h3><p><strong><em>${Math.floor((country[0].properties.difference / country[0].properties.data_2012)* 10000) / 100}%</strong> change (2012-2022) </em></p>` :
+                    `<p>Hover over a data point!</p>`;
+            });
+        }
+
+        geojsonFetch();
+    </script>
+</body>
+</html>
