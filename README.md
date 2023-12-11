@@ -19,3 +19,8 @@ After mapping out the price to income ratio for 2012 and 2022, we found it inter
 The data we used was from the [Organisation for Economic Co-operation and Development](https://data.oecd.org/price/housing-prices.htm)<br />
 The library we used was [Mapbox](https://docs.mapbox.com/mapbox-gl-js/guides/)<br />
 The web services we used were [GitHub](https://github.com/) and [Mapbox](https://www.mapbox.com/)
+
+ ## Acknowledgments
+We wanted to acknowledge <a href="https://www.arcgis.com/apps/webappviewer/index.html?id=85c044d6cb554f279645fb04d35a9b7c">this project</a> that was done in the past regarding world development vs income. When we first were brainstorming ideas for our final project we stumbled across this one and thought it would be good to create something similar using more recent data. The data that was mapped on the previous project was from 2013-2014.
+We also would like to acknowledge Professor Zhao for teaching us new skills to be able to create digital maps such as this and Liz for helping us debug strange errors as well as being so understanding to challenges that have occured over the quarter.
+          
