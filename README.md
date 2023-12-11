@@ -11,7 +11,7 @@ The map has points located on each of the OECD countries across the world that y
 ## Conclusion
 After mapping out the price to income ratio for 2012 and 2022, we found it interesting how the highest difference was in Luxembourg (LUX), with 70.42%. We also found it interesting that Romania (ROU) had a -41.62% change between 2012 and 2022. This meant that instead of the ratio increasing, this country was able to close the gap between housing prices and income rates.
 
-## Sources & Libraries & Web Serivces
+## Sources & Libraries & Web Services
 The data we used was from the [Organisation for Economic Co-operation and Development](https://data.oecd.org/price/housing-prices.htm)<br />
 The library we used was [Mapbox](https://docs.mapbox.com/mapbox-gl-js/guides/)<br />
 The web services we used were [GitHub](https://github.com/) and [Mapbox](https://www.mapbox.com/)
