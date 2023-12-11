@@ -47,7 +47,7 @@
             bottom: 0;
             left: 0;
             top: 0;
-            height: 100px;
+            height: 120px;
             margin-top: 90px;
             margin-left: 20px;
             width: 250px;
@@ -59,7 +59,7 @@
             padding: 10px;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             line-height: 18px;
-            height: 170px;
+            height: 180px;
             margin-bottom: 40px;
             margin-left: 20px;
             width: 150px;
@@ -96,6 +96,10 @@
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd;
+        }
+
+        #table-title {
+            margin: 0;
         }
 
         th,
@@ -150,6 +154,7 @@
             <a href="references.html">References</a>
         </div>
         <div class='map-overlay'id="side-panel">
+            <h3 id="table-title">Ratios (by OECD Country)</h3><br>
             <button>Sort by % Change</button>
             <table>
                 <tr>
@@ -162,7 +167,7 @@
         </div>
         <div id="map"></div>
         <div class='map-overlay' id='features'>
-            <h2>OECD Housing Prices</h2>
+            <h2>OECD Housing Price to Income Ratios</h2>
             <div id='text-description'>
                 <p>Hover over a data point!</p>
             </div>
@@ -175,8 +180,8 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 1.75,
-            center: [30, 27]
+            zoom: 1.33,
+            center: [32, 33]
         });
 
         async function geojsonFetch() {
@@ -192,8 +197,8 @@
                 cell3 = row.insertCell(2);
                 cell4 = row.insertCell(3);
                 cell1.innerHTML = housing_prices.features[i].properties.Location;
-                cell2.innerHTML = Math.floor(housing_prices.features[i].properties.data_2012 * 100) / 100;
-                cell3.innerHTML = Math.floor(housing_prices.features[i].properties.data_2022 * 100) / 100;
+                cell2.innerHTML = Math.floor(housing_prices.features[i].properties.data_2012 * 10) / 1000;
+                cell3.innerHTML = Math.floor(housing_prices.features[i].properties.data_2022 * 10) / 1000;
                 cell4.innerHTML = Math.floor((housing_prices.features[i].properties.difference / housing_prices.features[i].properties.data_2012)* 10000) / 100;
             }
 
@@ -248,7 +253,7 @@
                 ]
 
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>Price Change (2012-2022)</b><br><br>";
+                legend.innerHTML = "<b>Price/Income Ratio Change <br> (2012-2022)</b><br><br>";
 
                 layers.forEach((layer, i) =>{
                     const color = colors[i];
